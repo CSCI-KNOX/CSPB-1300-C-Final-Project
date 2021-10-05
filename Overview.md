@@ -315,11 +315,10 @@ We want you to create a user interface that gives the user the ability to intera
 Below is an example input/output session showing how your user interface might look and operate. The blue text represents the user input and the remainder of the text is the output from your program. Please note that your user interface does not have to match exactly with the one shown below. That is, your wording, order, look and feel, and layout can differ as long as you still meet the requirements outlined above. You may even want to improve upon what's shown below by making your user interface look nicer, giving better feedback to the user, performing user input validation, etc. However, you are not required to do so.  
 
 <pre>
-
 $ `./main`
 
 CSPB 1300 Image Processing Application
-Enter input BMP filename: <mark>sample.bmp</mark>
+Enter input BMP filename: `sample.bmp`
 
 IMAGE PROCESSING MENU
 0) Change image (current: sample.bmp)
@@ -334,10 +333,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>1</mark>
+Enter menu selection (Q to quit): `1`
 
 Vignette selected
-Enter output BMP filename: <mark>process1.bmp</mark>
+Enter output BMP filename: `process1.bmp`
 Successfully applied vignette!
 
 IMAGE PROCESSING MENU
@@ -353,11 +352,11 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>2</mark>
+Enter menu selection (Q to quit): `2`
 
 Clarendon selected
-Enter output BMP filename: <mark>process2.bmp</mark>
-Enter scaling factor: <mark>0.3</mark>
+Enter output BMP filename: `process2.bmp`
+Enter scaling factor: `0.3`
 Successfully applied clarendon!
 
 IMAGE PROCESSING MENU
@@ -373,10 +372,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>3</mark>
+Enter menu selection (Q to quit): `3`
 
 Grayscale selected
-Enter output BMP filename: <mark>process3.bmp</mark>
+Enter output BMP filename: `process3.bmp`
 Successfully applied grayscale!
 
 IMAGE PROCESSING MENU
@@ -392,10 +391,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>4</mark>
+Enter menu selection (Q to quit): `4`
 
 Rotate 90 degrees selected
-Enter output BMP filename: <mark>process4.bmp</mark>
+Enter output BMP filename: `process4.bmp`
 Successfully applied 90 degree rotation!
 
 IMAGE PROCESSING MENU
@@ -411,11 +410,11 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>5</mark>
+Enter menu selection (Q to quit): `5`
 
 Rotate multiple 90 degrees selected
-Enter output BMP filename: <mark>process5.bmp</mark>
-Enter number of 90 degree rotations: <mark>2</mark>
+Enter output BMP filename: `process5.bmp`
+Enter number of 90 degree rotations: `2`
 Successfully applied multiple 90 degree rotations!
 
 IMAGE PROCESSING MENU
@@ -431,12 +430,12 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>6</mark>
+Enter menu selection (Q to quit): `6`
 
 Enlarge selected
-Enter output BMP filename: <mark>process6.bmp</mark>
-Enter X scale: <mark>2</mark>
-Enter Y scale: <mark>3</mark>
+Enter output BMP filename: `process6.bmp`
+Enter X scale: `2`
+Enter Y scale: `3`
 Successfully enlarged!
 
 IMAGE PROCESSING MENU
@@ -452,10 +451,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>7</mark>
+Enter menu selection (Q to quit): `7`
 
 High contrast selected
-Enter output BMP filename: <mark>process7.bmp</mark>
+Enter output BMP filename: `process7.bmp`
 Successfully applied high contrast!
 
 IMAGE PROCESSING MENU
@@ -471,11 +470,11 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>8</mark>
+Enter menu selection (Q to quit): `8`
 
 Lighten selected
-Enter output BMP filename: <mark>process8.bmp</mark>
-Enter scaling factor: <mark>0.5</mark>
+Enter output BMP filename: `process8.bmp`
+Enter scaling factor: `0.5`
 Successfully lightened!
 
 IMAGE PROCESSING MENU
@@ -491,11 +490,11 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>9</mark>
+Enter menu selection (Q to quit): `9`
 
 Darken selected
-Enter output BMP filename: <mark>process9.bmp</mark>
-Enter scaling factor: <mark>0.5</mark>
+Enter output BMP filename: `process9.bmp`
+Enter scaling factor: `0.5`
 Successfully darkened!
 
 IMAGE PROCESSING MENU
@@ -511,10 +510,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>10</mark>
+Enter menu selection (Q to quit): `10`
 
 Black, white, red, green, blue selected
-Enter output BMP filename: <mark>process10.bmp</mark>
+Enter output BMP filename: `process10.bmp`
 Successfully applied black, white, red, green, blue filter!
 
 IMAGE PROCESSING MENU
@@ -530,10 +529,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>0</mark>
+Enter menu selection (Q to quit): `0`
 
 Change image selected
-Enter new input BMP filename: : <mark>sample2.bmp</mark>
+Enter new input BMP filename: : `sample2.bmp`
 Successfully changed input image!
 
 IMAGE PROCESSING MENU
@@ -549,10 +548,10 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>1</mark>
+Enter menu selection (Q to quit): `1`
 
 Vignette selected
-Enter output BMP filename: <mark>process1_2.bmp</mark>
+Enter output BMP filename: `process1_2.bmp`
 Successfully applied vignette!
 
 IMAGE PROCESSING MENU
@@ -568,7 +567,7 @@ IMAGE PROCESSING MENU
 9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): <mark>Q</mark>
+Enter menu selection (Q to quit): `Q`
 
 Thank you for using my program!
 Quitting...
