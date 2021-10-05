@@ -4,32 +4,31 @@ Below is a simple outline of how you might read in an image, process the pixel v
 
 _Hint: If you read the Project Description again carefully, you will notice that in the Data Structure, Read/Write Functions, and Image Processing Functions sections all of the code needed to implement the outline below is already given to you in bits and pieces._  
 
-<pre>
-vector\<vector\<Pixel\>\> process_1(const vector\<vector\<Pixel\>\>& image)
-{
-    // Get the number of rows/columns from the input 2D vector (remember: num_rows is height, num_columns is width)
 
-    // Define a new 2D vector the same size as the input 2D vector
+		vector<vector<Pixel>> process_1(const vector<vector<Pixel>>& image)
+		{
+			// Get the number of rows/columns from the input 2D vector (remember: num_rows is height, num_columns is width)
 
-    // For each of the rows in the input 2D vector
+			// Define a new 2D vector the same size as the input 2D vector
 
-        // For each of the columns in the input 2D vector
+			// For each of the rows in the input 2D vector
 
-            // Get the color values for the pixel located at this row and column in the input 2D vector
+				// For each of the columns in the input 2D vector
 
-            // Perform the operation on the color values (refer to Runestone for this)
+					// Get the color values for the pixel located at this row and column in the input 2D vector
 
-            // Save the new color values to the corresponding pixel located at this row and column in the new 2D vector
+					// Perform the operation on the color values (refer to Runestone for this)
 
-    // Return the new 2D vector after the nested for loop is complete
-}
+					// Save the new color values to the corresponding pixel located at this row and column in the new 2D vector
 
-int main()
-{
-    // Read in BMP image file into a 2D vector (using read_image function)
+			// Return the new 2D vector after the nested for loop is complete
+		}
 
-    // Call process_1 function using the input 2D vector and save the result returned to a new 2D vector
+		int main()
+		{
+			// Read in BMP image file into a 2D vector (using read_image function)
 
-    // Write the resulting 2D vector to a new BMP image file (using write_image function)
-}
-</pre>
+			// Call process_1 function using the input 2D vector and save the result returned to a new 2D vector
+
+			// Write the resulting 2D vector to a new BMP image file (using write_image function)
+		}
