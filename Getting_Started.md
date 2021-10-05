@@ -4,7 +4,8 @@ Below is a simple outline of how you might read in an image, process the pixel v
 
 _Hint: If you read the Project Description again carefully, you will notice that in the Data Structure, Read/Write Functions, and Image Processing Functions sections all of the code needed to implement the outline below is already given to you in bits and pieces._  
 
-<pre>vector<vector<Pixel>> process_1(const vector<vector<Pixel>>& image)
+<pre>
+vector\<vector\<Pixel\>\> process_1(const vector\<vector\<Pixel\>\>& image)
 {
     // Get the number of rows/columns from the input 2D vector (remember: num_rows is height, num_columns is width)
 
@@ -30,4 +31,5 @@ int main()
     // Call process_1 function using the input 2D vector and save the result returned to a new 2D vector
 
     // Write the resulting 2D vector to a new BMP image file (using write_image function)
-}</pre>
+}
+</pre>
