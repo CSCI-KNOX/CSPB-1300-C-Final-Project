@@ -1,20 +1,8 @@
-<table>
 
-<tbody>
+![](doc_images/yawning_squirrel.jpg)
+![](doc_images/yawning_squirrel_process10.png)
 
-<tr>
-
-<td>![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/yawning_squirrel.jpg)</td>
-
-<td>![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/yawning_squirrel_process10.png)</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-#### OVERVIEW
+## OVERVIEW
 
 The very first week of this class, you may recall that we did an activity in the Runestone Python book called _A Preview of the End Goal_ where you were immediately exposed to some seemingly complicated image processing code. At the time, you were told that although you may not be able to figure out what the code was doing at that point, that you would be able to do something like that by the end of the course. Well, now is the time to make that happen!  
 
@@ -33,7 +21,7 @@ As far as the minimum requirements for the project, that's about it! The rest of
 
 * * *
 
-#### DATA STRUCTURE (Informational)
+## DATA STRUCTURE (Informational)
 
 In order to store the image data, we will need a data structure of some kind. An array might be a natural choice to hold the integer pixel information. However, there are limitations on using arrays in C++ as you have seen from the reading and assignments. In particular, a multi-dimensional array requires that all but the first dimension be specified at compile time if passing them as parameters. Since our application won't know the size of the image until the user specifies the image file they want to process, a standard C++ array might not be a good choice. Another issue with standard C++ arrays is that they are more difficult to work with when it comes to passing them as parameters, returning them as return values from functions, and memory management (e.g. forgetting to delete them if we dynamically create them using the new keyword).  
 
@@ -41,16 +29,14 @@ C++ vectors overcome a lot of these issues and are simpler to work with (please 
 
 In order to store each pixel, we will create a user-defined data type using a structure to hold the 3 color values (please review section 7.7 in the Big C++ for more information on structures). The members of the `Pixel` structure will be integer variables that will hold the `red`, `green`, and `blue` color values. The `Pixel` structure declaration should be as follows (already implemented for you in the starter code):
 
-<pre>
 
-*   struct Pixel
-    {
-        int red;
-        int green;
-        int blue;
-    };
+        struct Pixel
+            {
+                int red;
+                int green;
+                int blue;
+            };
 
-</pre>
 
 Therefore, our data structure will be a 2-dimensional vector of `Pixel` values (i.e. a vector of vectors of Pixels).  
 
@@ -61,50 +47,35 @@ To retrieve the number of rows (i.e. height) in the 2-dimensional vector, we can
 
 To define a new 2-dimensional vector of `Pixel` values and prepopulate it with a specified number of `rows `and `columns`, we could do the following:
 
-<pre>
+    vector<vector<Pixel>> new_image(num_rows, vector<Pixel> (num_columns));
 
-*   vector<vector<Pixel>> new_image(num_rows, vector<Pixel> (num_columns));
-
-</pre>
 
 To write a single color value to one of the `Pixel`s in a 2-dimensional vector located at index `row` and `col`, we could do the following:
 
-<pre>
-
-*   new_image[row][col].red = 100; // Sets the red color to 100 for the Pixel located at index row, col
-
-</pre>
+    new_image[row][col].red = 100; // Sets the red color to 100 for the Pixel located at index row, col
 
 To read a single color value from one of the `Pixel`s in a 2-dimensional vector, located at index `row` and `col`, we could do the following:
 
-<pre>
-
-*   int green_color = image[row][col].green; // Gets the green color for the Pixel located at index row, col
-
-</pre>
+    int green_color = image[row][col].green; // Gets the green color for the Pixel located at index row, col
 
 Putting these ideas together, to iterate over all the rows and columns of a 2-dimensional vector and get the Pixel color values, we could use a nested for loop. We can also set new Pixel color values for a new 2-dimensional vector in the same iteration. For example:  
 
-<pre>
-
-*   for (int row = 0; row < num_rows; row++)
-    {
-        for (int col = 0; col < num_columns; col++)
+    for (int row = 0; row < num_rows; row++)
         {
-        	// Get the blue color for the Pixel located at index row, col in the input 2D vector
-            int blue_color = image[row][col].blue;
-            ...
-            ...
-            // Set the blue color for the Pixel located at index row, col in a new 2D vector to 50
-            new_image[row][col].blue = 50;
+            for (int col = 0; col < num_columns; col++)
+            {
+                // Get the blue color for the Pixel located at index row, col in the input 2D vector
+                int blue_color = image[row][col].blue;
+                ...
+                ...
+                // Set the blue color for the Pixel located at index row, col in a new 2D vector to 50
+                new_image[row][col].blue = 50;
+            }
         }
-    }
-
-</pre>
 
 * * *
 
-#### READ/WRITE IMAGE FUNCTIONS (Provided to you)
+## READ/WRITE IMAGE FUNCTIONS (Provided to you)
 
 We will be providing to you the functions to read and write BMP (bitmap) image files that you can use in your code.  
 
@@ -113,54 +84,41 @@ The code for the `read_image` function was mostly derived from the Big C++ book
 
 Function signature:
 
-<pre>
-
-*   vector<vector<Pixel>> read_image(string filename)
-
-</pre>
+    vector<vector<Pixel>> read_image(string filename)
 
 Example function invocation:
 
-<pre>
+    vector<vector<Pixel>> image = read_image("sample.bmp");  // Read sample.bmp file and store in 2D vector named image
 
-*   vector<vector<Pixel>> image = read_image("sample.bmp");  // Read sample.bmp file and store in 2D vector named image
 
-</pre>
+**WRITE IMAGE**  FUNCTION 
 
-**WRITE IMAGE FUNCTION**  
 The code for the `write_image` function is a little more complicated and beyond the scope of this course. However, the basic idea is that the function accepts a `filename` and a 2-dimensional vector as parameters, writes the image data stored in the 2-dimensional vector to the BMP image file specified by the `filename` parameter, returns `true` if the operation was successful, and returns `false` if the operation failed. This will create a new BMP image file in the current working directory.   
 
 Function signature:
 
-<pre>
-
-*   bool write_image(string new_filename, const vector<vector<Pixel>>& new_image)
-
-</pre>
+    bool write_image(string new_filename, const vector<vector<Pixel>>& new_image)
 
 Example function invocation:
 
-<pre>
+    bool success = write_image("new_file.bmp", new_image);  // Write 2D vector named new_image to file named new_file.bmp
 
-*   bool success = write_image("new_file.bmp", new_image);  // Write 2D vector named new_image to file named new_file.bmp
+IMPORTANT NOTE: Your program is not allowed to modify or overwrite the original input image file! Therefore, be careful not to ever pass in the original filename into the write_image function.
 
-</pre>
+**These two comments below only pertain to students who wish to understand or modify the read and write functions provided:** 
 
-<span>IMPORTANT NOTE: Your program is not allowed to modify or overwrite the original input image file! Therefore, be careful not to ever pass in the original filename into the write_image function.</span>  
-
-_These two comments below only pertain to students who wish to understand or modify the read and write functions provided:  
-_
 
 *   _BMP image files actually store their pixel data from bottom-to-top. This is in contrast to the way the Runestone book accesses image data and the way we intuitively might think of scanning an image, which would be from top-to-bottom. The read and write functions already account for this reversed access pattern so you shouldn't have to do anything special in your code. That is, you can assume that the 2-dimensional vector returned from the read function stores the pixels from top-to-bottom and that the write function assumes this same top-to-bottom pattern that is used in the Runestone book._
+
 *   _Similarly, another small quirk with BMP image files is that they store their pixel values in the order of Blue, Green, and Red. This is in contrast to the way the Runestone book orders the colors, which is a Red, Green, Blue pattern. The read and write function already account for this reversed color order so you shouldn't have to do anything special in your code._
 
 * * *
 
-#### IMAGE PROCESSING FUNCTIONS (To do)
+## IMAGE PROCESSING FUNCTIONS (To do)
 
 Now that we can read and write the BMP image files, we are ready to move on to the image processing functions. Go back to the activity called _A Preview of the End Goal_ in the Runestone Python book and re-familiarize yourself with the project. In particular, review the code for the functions _process1_ up to _process10_. You can do that by going to the second activity on the page called _Activity 2 - ActiveCode (act_0_imageproc)_ and clicking on the _Show Code_ button. That will open the code window and display the Python code for all of the processes. Also, anytime you want to see how the function works, use the next activity titled _Activity 3 - ActiveCode (act_0_learnfuncs)_, change the process number function and parameters, and click on the _Save & Run_ button to see an example of the expected result.  
 
-<span><span>Your job is to implement those 10 process functions (_process1_ through _process10_) in C++. <span style="">You are allowed to directly use the algorithms/code from the Runestone book for your project. Therefore, this shouldn't be very difficult of a task as you mainly just have to translate the code from Python to C++ for each of the functions below.</span> <span style="">In fact, you will find that once you get the first process function working, the rest of them will go very quickly since all of the functions follow the same pattern outlined below</span>.</span></span>  
+Your job is to implement those 10 process functions (_process1_ through _process10_) in C++. You are allowed to directly use the algorithms/code from the Runestone book for your project. Therefore, this shouldn't be very difficult of a task as you mainly just have to translate the code from Python to C++ for each of the functions below. In fact, you will find that once you get the first process function working, the rest of them will go very quickly since all of the functions follow the same pattern outlined below.  
 
 For each of the image processing functions below, you will be:  
 
@@ -175,9 +133,9 @@ A description, recommended signature, and a sample output is provided for each o
 
 Note: The "width" of the image refers to the number of pixels in the horizontal direction and that corresponds to the number of "columns". Similarly, the "height" of the image refers to the number of pixels in the vertical direction and that corresponds to the number of "rows". Also, to call one of your process functions from your main function and save the result to a new 2D vector, you can do something like this:  
 
-*   `vector<vector<Pixel>> new_image = process_1(image);`
+    vector<vector<Pixel>> new_image = process_1(image);
 
-*   **PROCESS 1**
+### **PROCESS 1**
 
 *   Description:
 
@@ -185,13 +143,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_1(const vector<vector<Pixel>>& image)`</div>
+        vector<vector<Pixel>> process_1(const vector<vector<Pixel>>& image)
 
 *   Sample output:
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process1.jpg)
+![](doc_images/process1.jpg)
 
-*   **PROCESS 2**
+### **PROCESS 2**
 
 *   Description:
 
@@ -199,13 +157,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_2(const vector<vector<Pixel>>& image, double scaling_factor)`</div>
+    vector<vector<Pixel>> process_2(const vector<vector<Pixel>>& image, double scaling_factor)
 
 *   Sample output (with scaling_factor=0.3):
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process2.jpg)
+![](doc_images/process2.jpg)
 
-*   **PROCESS 3**
+###   **PROCESS 3**
 
 *   Description:
 
@@ -213,13 +171,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_3(const vector<vector<Pixel>>& image)`</div>
+        vector<vector<Pixel>> process_3(const vector<vector<Pixel>>& image)
 
 *   Sample output:
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process3.jpg)
+![](doc_images/process3.jpg)
 
-*   **PROCESS 4**
+###   **PROCESS 4**
 
 *   Description:
 
@@ -227,13 +185,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_4(const vector<vector<Pixel>>& image)`</div>
+        vector<vector<Pixel>> process_4(const vector<vector<Pixel>>& image)
 
 *   Sample output:
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process4.jpg)
+![](doc_images/process4.jpg)
 
-*   **PROCESS 5**
+###   **PROCESS 5**
 
 *   Description:
 
@@ -241,13 +199,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_5(const vector<vector<Pixel>>& image, int number)`</div>
+        vector<vector<Pixel>> process_5(const vector<vector<Pixel>>& image, int number)
 
 *   Sample output (with number=2):
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process5.jpg)
+![](doc_images/process5.jpg)
 
-*   **PROCESS 6**
+###   **PROCESS 6**
 
 *   Description:
 
@@ -255,13 +213,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_6(const vector<vector<Pixel>>& image, int x_scale, int y_scale)`</div>
+        vector<vector<Pixel>> process_6(const vector<vector<Pixel>>& image, int x_scale, int y_scale)
 
 *   Sample output (with x_scale=2 and y_scale=3):
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process6.jpg?time=1605726191136)
+![](doc_images/process6.jpg)
 
-*   **PROCESS 7**
+###  **PROCESS 7**
 
 *   Description:
 
@@ -269,13 +227,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_7(const vector<vector<Pixel>>& image)`</div>
+        vector<vector<Pixel>> process_7(const vector<vector<Pixel>>& image) 
 
 *   Sample output:
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process7.jpg)
+![](doc_images/process7.jpg)
 
-*   **PROCESS 8**
+###   **PROCESS 8**
 
 *   Description:
 
@@ -283,13 +241,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_8(const vector<vector<Pixel>>& image, double scaling_factor)`</div>
+        vector<vector<Pixel>> process_8(const vector<vector<Pixel>>& image, double scaling_factor) 
 
 *   Sample output (with scaling_factor=0.5):
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process8.jpg?time=1595895537366)
+![](doc_images/process8.jpg)
 
-*   **PROCESS 9**
+###   **PROCESS 9**
 
 *   Description:
 
@@ -297,13 +255,13 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_9(const vector<vector<Pixel>>& image, double scaling_factor)`</div>
+        vector<vector<Pixel>> process_9(const vector<vector<Pixel>>& image, double scaling_factor)  
 
 *   Sample output (with scaling_factor=0.5):
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process9.jpg)
+![](doc_images/process9.jpg)
 
-*   **PROCESS 10**
+###   **PROCESS 10**
 
 *   Description:
 
@@ -311,15 +269,15 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-*   <div>`vector<vector<Pixel>> process_10(const vector<vector<Pixel>>& image)`</div>
+    vector<vector<Pixel>> process_10(const vector<vector<Pixel>>& image)
 
 *   Sample output:
 
-*   ![](https://applied.cs.colorado.edu/draftfile.php/458/user/draft/516113247/process10.jpg)
+![](doc_images/process10.jpg)
 
 * * *
 
-#### USER INTERFACE (To do)
+### USER INTERFACE (To do)
 
 We want you to create a user interface that gives the user the ability to interact with your program. The requirements for the user interface are as follows:  
 
@@ -356,285 +314,270 @@ We want you to create a user interface that gives the user the ability to intera
 
 Below is an example input/output session showing how your user interface might look and operate. The blue text represents the user input and the remainder of the text is the output from your program. Please note that your user interface does not have to match exactly with the one shown below. That is, your wording, order, look and feel, and layout can differ as long as you still meet the requirements outlined above. You may even want to improve upon what's shown below by making your user interface look nicer, giving better feedback to the user, performing user input validation, etc. However, you are not required to do so.  
 
-<table>
+<pre>
 
-<tbody>
-
-<tr>
-
-<td style="border: 1px solid;border-collapse: collapse;padding: 5px;white-space: nowrap;">
-
-<pre>$ `./main`                          
+$ <mark>./main</mark>                          
 
 CSPB 1300 Image Processing Application
-Enter input BMP filename: `sample.bmp`
+Enter input BMP filename: <mark>sample.bmp</mark>
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `1`
+Enter menu selection (Q to quit): <mark>1</mark>
 
 Vignette selected
-Enter output BMP filename: `process1.bmp`
+Enter output BMP filename: <mark>process1.bmp</mark>
 Successfully applied vignette!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `2`
+Enter menu selection (Q to quit): <mark>2</mark>
 
 Clarendon selected
-Enter output BMP filename: `process2.bmp`
-Enter scaling factor: `0.3`
+Enter output BMP filename: <mark>process2.bmp</mark>
+Enter scaling factor: <mark>0.3</mark>
 Successfully applied clarendon!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `3`
+Enter menu selection (Q to quit): <mark>3</mark>
 
 Grayscale selected
-Enter output BMP filename: `process3.bmp`
+Enter output BMP filename: <mark>process3.bmp</mark>
 Successfully applied grayscale!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `4`
+Enter menu selection (Q to quit): <mark>4</mark>
 
 Rotate 90 degrees selected
-Enter output BMP filename: `process4.bmp`
+Enter output BMP filename: <mark>process4.bmp</mark>
 Successfully applied 90 degree rotation!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `5`
+Enter menu selection (Q to quit): <mark>5</mark>
 
 Rotate multiple 90 degrees selected
-Enter output BMP filename: `process5.bmp`
-Enter number of 90 degree rotations: `2`
+Enter output BMP filename: <mark>process5.bmp</mark>
+Enter number of 90 degree rotations: <mark>2</mark>
 Successfully applied multiple 90 degree rotations!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `6`
+Enter menu selection (Q to quit): <mark>6</mark>
 
 Enlarge selected
-Enter output BMP filename: `process6.bmp`
-Enter X scale: `2`
-Enter Y scale: `3`
+Enter output BMP filename: <mark>process6.bmp</mark>
+Enter X scale: <mark>2</mark>
+Enter Y scale: <mark>3</mark>
 Successfully enlarged!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `7`
+Enter menu selection (Q to quit): <mark>7</mark>
 
 High contrast selected
-Enter output BMP filename: `process7.bmp`
+Enter output BMP filename: <mark>process7.bmp</mark>
 Successfully applied high contrast!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `8`
+Enter menu selection (Q to quit): <mark>8</mark>
 
 Lighten selected
-Enter output BMP filename: `process8.bmp`
-Enter scaling factor: `0.5`
+Enter output BMP filename: <mark>process8.bmp</mark>
+Enter scaling factor: <mark>0.5</mark>
 Successfully lightened!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `9`
+Enter menu selection (Q to quit): <mark>9</mark>
 
 Darken selected
-Enter output BMP filename: `process9.bmp`
-Enter scaling factor: `0.5`
+Enter output BMP filename: <mark>process9.bmp</mark>
+Enter scaling factor: <mark>0.5</mark>
 Successfully darkened!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `10`
+Enter menu selection (Q to quit): <mark>10</mark>
 
 Black, white, red, green, blue selected
-Enter output BMP filename: `process10.bmp`
+Enter output BMP filename: <mark>process10.bmp</mark>
 Successfully applied black, white, red, green, blue filter!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `0`
+Enter menu selection (Q to quit): <mark>0</mark>
 
 Change image selected
-Enter new input BMP filename: : `sample2.bmp`
+Enter new input BMP filename: : <mark>sample2.bmp</mark>
 Successfully changed input image!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample2.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample2.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `1`
+Enter menu selection (Q to quit): <mark>1</mark>
 
 Vignette selected
-Enter output BMP filename: `process1_2.bmp`
+Enter output BMP filename: <mark>process1_2.bmp</mark>
 Successfully applied vignette!
 
 IMAGE PROCESSING MENU
- 0) Change image (current: sample2.bmp)
- 1) Vignette
- 2) Clarendon
- 3) Grayscale
- 4) Rotate 90 degrees
- 5) Rotate multiple 90 degrees
- 6) Enlarge
- 7) High contrast
- 8) Lighten
- 9) Darken
+0) Change image (current: sample2.bmp)
+1) Vignette
+2) Clarendon
+3) Grayscale
+4) Rotate 90 degrees
+5) Rotate multiple 90 degrees
+6) Enlarge
+7) High contrast
+8) Lighten
+9) Darken
 10) Black, white, red, green, blue
 
-Enter menu selection (Q to quit): `Q`
+Enter menu selection (Q to quit): <mark>Q</mark>
 
 Thank you for using my program!
 Quitting...
 
 $
 </pre>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
 * * *
 
-#### ENHANCEMENTS (Optional, not graded)
+### ENHANCEMENTS (Optional, not graded)
 
 If you would like an additional challenge, I encourage you to attempt to implement more advanced image processing functions. In the Runestone book in _Project 10: Image Processing_, they describe a couple of possible additional operations you can implement:  
 
