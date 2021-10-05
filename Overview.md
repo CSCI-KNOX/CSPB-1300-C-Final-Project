@@ -316,7 +316,7 @@ Below is an example input/output session showing how your user interface might l
 
 <pre>
 
-$ <mark>./main</mark>                          
+$ `./main`
 
 CSPB 1300 Image Processing Application
 Enter input BMP filename: <mark>sample.bmp</mark>
