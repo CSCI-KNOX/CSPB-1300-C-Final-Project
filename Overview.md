@@ -283,32 +283,30 @@ We want you to create a user interface that gives the user the ability to intera
 
 *   User can enter an input BMP filename
 
-*   This is the image file that the operations will be performed on
+    *   This is the image file that the operations will be performed on
 
 *   Displays a menu of available selections to the user
 
-*   One selection to change the input image if desired
-*   One for each of the image processing functions
+    *   One selection to change the input image if desired
+    *   One for each of the image processing functions
 
 *   User can enter their desired operation / menu selection
 *   User can enter the desired output BMP filename
 
-*   This is the file where the modified image will be saved to
-*   Remember to never specify the original input BMP filename or else it will be overwritten!
+    *   This is the file where the modified image will be saved to
+    *   Remember to never specify the original input BMP filename or else it will be overwritten!
 
 *   User can enter the necessary parameters for the selected operation
-
-*   For example: scaling factor, number of rotations, etc.
-*   This applies to processes 2, 5, 6, 8, 9
+    *   For example: scaling factor, number of rotations, etc.
+    *   This applies to processes 2, 5, 6, 8, 9
 
 *   Displays confirmation that the operation was successful
-
-*   Or an error message if the operation failed
+    *   Or an error message if the operation failed
 
 *   User is brought back to the main menu after each operation so they can continue performing operations until they chose to exit out of the program
 
-*   It is very important that your program continues to accept user input until they explicitly signal they want to exit
-*   _Hint: You should use a while loop for your menu system_
+    *   It is very important that your program continues to accept user input until they explicitly signal they want to exit
+    *   _Hint: You should use a while loop for your menu system_
 
 *   User can gracefully exit out of the program
 
