@@ -245,6 +245,7 @@ int main()
     //
     // YOUR CODE HERE
     //
+	cout << "\n\n\nThis line ahould be your own code!\n\n\n";
 
     return 0;
 }
