@@ -18,3 +18,8 @@ There is also a _Test Debug_ document that contains some useful information on t
 1. Click on the _Git_ icon
 1. Select CLONE and give it the URL for the CSPB-1330-C-Final-Project repository at which you are currently looking. 
 (https://github.com/CSCI-KNOX/CSPB-1300-C-Final-Project.git)
+1. Select the folder icon and the CSPB-1300-C-Final_Project directory to see the files in the newly cloned directory.
+View the markdown files (\*.md) by right clicking on the file, select **_open with_** which will list two possible applications: ***Editor*** and ***Markdown Preview***.  Select the ***Markdown Preview*** to view the document.  Use the ***Editor*** to view the source of the document.
+
+1. View the markdown preview for the *Overview*, the *File Descriptions*, the *Getting Started*, and the *Test Debug* markdown files.
+1. Try building and running the sample code in *main.cpp* by using the command in ***File Descriptions***. 

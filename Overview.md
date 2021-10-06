@@ -310,7 +310,7 @@ We want you to create a user interface that gives the user the ability to intera
 
 *   User can gracefully exit out of the program
 
-Below is an example input/output session showing how your user interface might look and operate. The blue text represents the user input and the remainder of the text is the output from your program. Please note that your user interface does not have to match exactly with the one shown below. That is, your wording, order, look and feel, and layout can differ as long as you still meet the requirements outlined above. You may even want to improve upon what's shown below by making your user interface look nicer, giving better feedback to the user, performing user input validation, etc. However, you are not required to do so.  
+Below is an example input/output session showing how your user interface might look and operate. The text within the back quotes (`) represents the user input and the remainder of the text is the output from your program. Please note that your user interface does not have to match exactly with the one shown below. That is, your wording, order, look and feel, and layout can differ as long as you still meet the requirements outlined above. You may even want to improve upon what's shown below by making your user interface look nicer, giving better feedback to the user, performing user input validation, etc. However, you are not required to do so.  
 
 <pre>
 $ `./main`
