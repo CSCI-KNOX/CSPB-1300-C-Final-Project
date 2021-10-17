@@ -23,7 +23,8 @@ to see the GIT tools.
 1. Select the folder icon and the CSPB-1300-C-Final_Project directory to see the files in the newly cloned directory.
 View the markdown files (\*.md) by right clicking on the file, select **_open with_** which will list two possible applications: ***Editor*** and ***Markdown Preview***.  Select the ***Markdown Preview*** to view the document.  Use the ***Editor*** to view the source of the document.
 
-    <img src="doc_images/right_click_on_markdown.png" alt="right_click_on_markdown" width="230" style="vertical-align:top;"/> <img src="doc_images/markdown_open_with.png" alt="markdown_open_with" width="100"  style="vertical-align:top;"/> 
+    <img src="doc_images/right_click_on_markdown.png" alt="right_click_on_markdown" width="300" style="vertical-align: top;"/>  <img src="doc_images/markdown_open_with.png" alt="markdown_open_with" width="165"  style="vertical-align: top;"/>  
+
 
 6. View the markdown preview for the *Overview*, the *File Descriptions*, the *Getting Started*, and the *Test Debug* markdown files.
 1. Try building and running the sample code in *main.cpp* by using the command in ***File Descriptions***. 
