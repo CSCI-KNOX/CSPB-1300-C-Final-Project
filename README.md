@@ -28,7 +28,7 @@ in the toolbar on the left side of the window to see the GIT tools.  The icon in
 
 <img src="doc_images/git_tools.png" alt="git tools menu" width="250"/>       <img src="doc_images/git_clone_dialog.png" alt="git clone dialog" width="200"/>
   
-5. Now lets view some of the documentation in the repository.  Select the folder icon and the _CSPB-1300-C-Final_Project_ directory to see the files in the newly cloned directory.
+5. Now let's view some of the documentation in the repository.  Select the folder icon and the _CSPB-1300-C-Final_Project_ directory to see the files in the newly cloned directory.
 View the markdown files (\*.md) by right clicking on the file, select **_open with_** which will list two possible applications: ***Editor*** and ***Markdown Preview***.  Select the ***Markdown Preview*** to view the document.  Use the ***Editor*** to view the source of the document.
 
     <img src="doc_images/right_click_on_markdown.png" alt="right_click_on_markdown" width="300" style="vertical-align: top;"/>  <img src="doc_images/markdown_open_with.png" alt="markdown_open_with" width="165"  style="vertical-align: top;"/>  
