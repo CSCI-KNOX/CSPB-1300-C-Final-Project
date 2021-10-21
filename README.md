@@ -24,7 +24,7 @@ in the toolbar on the left side of the window to see the GIT tools.  The icon in
 
 <img src="doc_images/Jupyter_GIT_Icon.png" alt="git_icon" width="250"/>
 
-4. Select _Clone a Repository_ from the list of tools.  Fill in the repository name with the URL for the _CSPB-1330-C-Final-Project_ repository at which you are currently looking   (GIT Project: https://github.com/CSCI-KNOX/CSPB-1300-C-Final-Project) and select _CLONE_. Once the cloning is complete you should have a folder _CSPB-1300-C-Final_Project_ listed in your directory and it should contain all of the files from the repository.
+4. Select _Clone a Repository_ from the list of tools.  Fill in the repository name with the URL for the _CSPB-1330-C-Final-Project_ repository at which you are currently looking   (GIT Project: https://github.com/CSCI-KNOX/CSPB-1300-C-Final-Project.git) and select _CLONE_. Once the cloning is complete you should have a folder _CSPB-1300-C-Final_Project_ listed in your directory and it should contain all of the files from the repository.
 
 <img src="doc_images/git_tools.png" alt="git tools menu" width="250"/>       <img src="doc_images/git_clone_dialog.png" alt="git clone dialog" width="200"/>
   
