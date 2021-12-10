@@ -157,7 +157,7 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-    vector<vector<Pixel>> process_2(const vector<vector<Pixel>>& image, double scaling_factor)
+        vector<vector<Pixel>> process_2(const vector<vector<Pixel>>& image, double scaling_factor)
 
 *   Sample output (with scaling_factor=0.3):
 
