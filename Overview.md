@@ -269,7 +269,7 @@ Note: The "width" of the image refers to the number of pixels in the horizontal 
 
 *   Recommended function signature:
 
-    vector<vector<Pixel>> process_10(const vector<vector<Pixel>>& image)
+        vector<vector<Pixel>> process_10(const vector<vector<Pixel>>& image)
 
 *   Sample output:
 
