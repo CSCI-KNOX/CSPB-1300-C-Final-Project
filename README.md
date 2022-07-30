@@ -8,8 +8,8 @@ The link to the submission page for the project will be found in the final week'
 
 Please read the information posted in this repository carefully before getting started. It contains everything you need to know about the project. 
 
-The _Overview_ document describes the processes you need to code for the project.  The repository also contains 
-starter files that are discussed in the _File Descriptions_ document and there are hints about the project in the _Getting Started_ document.  
+The [_Overview_](/Overview.md) document describes the processes you need to code for the project.  The repository also contains 
+starter files that are discussed in the [_File Descriptions_](/File_Descriptions.md) document and there are hints about the project in the [_Getting Started_](/Getting_Started.md) document.  
 
 There is also a _Test Debug_ document that contains some useful information on testing your functions.
 
@@ -34,6 +34,6 @@ View the markdown files (\*.md) by right clicking on the file, select **_open wi
     <img src="doc_images/right_click_on_markdown.png" alt="right_click_on_markdown" width="300" style="vertical-align: top;"/>  <img src="doc_images/markdown_open_with.png" alt="markdown_open_with" width="165"  style="vertical-align: top;"/>  
 
 
-6. View the markdown preview for the *Overview*, the *File Descriptions*, the *Getting Started*, and the *Test Debug* markdown files.
-7. Try building and running the sample code in *main.cpp* by using the command in ***File Descriptions***. 
+6. View the markdown preview for the [*Overview*](/Overview.md), the [*File Descriptions*](/File_Descriptions.md), the [*Getting Started*](/Getting_Started.md), and the [*Test Debug*](/Test_Debug.md) markdown files.
+7. Try building and running the sample code in [*main.cpp*](/main.cpp) by using the command in [***File Descriptions***](/File_Descriptions.md). 
 
